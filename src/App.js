@@ -1,22 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import OnlineComponent from "./components/OnlineComponent"
+import { io } from "socket.io-client";
 
 function App() {
+  const resetinSocket = () =>{
+    console.log("click")
+    const socket = io('http://localhost:8090');
+    socket.emit("resetGame")
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Dupme Server</h1>
+        <OnlineComponent/>
+        <button className="btn" onClick={()=>resetinSocket()}>Reset</button>
       </header>
     </div>
   );
