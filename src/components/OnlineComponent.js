@@ -6,7 +6,7 @@ const OnlineComponent = () =>{
     useEffect(() => {
         const interval = setInterval(() => {
         console.log('This will run every second!');
-        axios.get(`http://localhost:8090/status`).then(res => {
+        axios.get(`http://localhost:3000/status`).then(res => {
             const onlinetemp = res.data;
             setOnline(onlinetemp.NumberPlayer);
         })
